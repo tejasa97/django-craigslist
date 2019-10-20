@@ -1,0 +1,14 @@
+.s1{
+    padding: 40px 0px;
+    height:100%;
+}
+
+.card{
+    height : 400px;
+    overflow: hidden;
+}
+
+.card-image{
+    height: 250px;
+    overflow: hidden;
+}

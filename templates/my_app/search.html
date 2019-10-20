@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class='row'>
+    {% if not results %}
+    <h5 style="text-align: center">No results found for {{search_term | title}}! Try with a different filter maybe?</h5>
+  </div>
+  {% else %}
+<!-- <div class="row"> -->
+  
+    <h5 style="text-align: center"> Found {{results | length}} results for '{{search_term | title}}'! </h5>
+        {% for post in results %}
+
+            <div class="col s4">
+              <div class="card small">
+                  <div class="card-image medium">
+                      <a href="{{post.url}}">
+                        <img src="{{post.img_url}}" style="height: 200px; width: 100%" alt="">
+                      </a>
+                  </div>
+                  <div class="card-content">
+                    <p>{{post.title}}</p>
+                  </div>
+                  <div class="card-action">
+                      <a href="{{post.url}}">View listing : {{post.price}}</a>
+                      <!-- <a contenthref="#">This is a link</a> -->
+                  </div>
+              </div>
+            </div>
+
+        {% endfor %}
+      </div>
+    {% endif %}
+
+{% endblock content %}

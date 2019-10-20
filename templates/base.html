@@ -1,0 +1,165 @@
+{% load staticfiles %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+
+    <title> Bangalore Craigslist </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <div class="container nav-wrapper">
+            <a href="/" class="brand-logo">Bengaluru Craigslist</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align:center">What do you wish to search on <br> Bengaluru Craigslist?</h1>
+
+        <div class="row">
+
+            <div class="col s4">
+                <div class="center">
+                    <i class='large material-icons' style="color:rgb(51, 115, 189)">flash_on</i>
+                    <p>Fast craiglist web scraper</p>
+                    <p class="light center">Scrape away right here with a beautiful GUI!</p>
+                </div>
+            </div>
+
+            <div class="col s4">
+                    <div class="center">
+                        <i class='large material-icons' style="color:orange">camera</i>
+                        <p>Filter your searches</p>
+                        <p class="light center">Filter based on pricing!</p>
+                    </div>
+            </div>
+
+            <div class="col s4">
+                    <div class="center">
+                        <i class='large material-icons' style="color:rgb(51, 115, 189)">chrome_reader_mode</i>
+                        <p>A much cooler frontend to Craigslist</p>
+                        <p class="light center">Built with ❤️</p>
+                    </div>
+            </div>
+
+        </div>
+
+        <br>
+
+        <!-- <div class="row"> -->
+            <!-- <form action="#">
+                <div class="col s3">
+                    <label>
+                        <input class="with-gap" name="group1" type="radio" checked />
+                        <span>Red</span>
+                    </label>
+                </div>
+                <div class="col s3">
+                    <label>
+                        <input class="with-gap" name="group1" type="radio"  />
+                        <span>Yellow</span>
+                    </label>
+                </div>
+                <div class="col s3">
+                    <label>
+                        <input class="with-gap" name="group1" type="radio"  />
+                        <span>Green</span>
+                    </label>
+                </div>
+                <div class="col s3">
+                    <label>
+                        <input class="with-gap" name="group1" type="radio"  />
+                        <span>Brown</span>
+                    </label>
+                </div>
+            </form> -->
+        <!-- </div> -->
+        <form action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+    
+            <input type="text" name="search_term" placeholder="Search">
+            <div class="row center-align">
+                <!-- <div class="col s12" style="align-content: center;"> -->
+                <!-- <div class="col s1 offset-s1" style="width:110px; margin-left:100px"> -->
+                    <label>
+                        <input class="with-gap " name="group1" value="ccc" type="radio" checked />
+                        <span>community</span>                    
+                    </label>
+                <!-- </div> -->
+                <!-- <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="eee" type="radio"  />
+                        <span>events</span>
+                    </label>
+                <!-- </div> -->
+                <!-- <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="sss" type="radio"  />
+                        <span>sale</span>
+                    </label>
+                <!-- </div>
+                <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="ggg" type="radio"  />
+                        <span>gigs</span>
+                    </label>
+                <!-- </div> -->
+                <!-- <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="hhh" type="radio" />
+                        <span>housing</span>
+                    </label>
+                <!-- </div>
+                <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="jjj" type="radio"  />
+                        <span>jobs</span>
+                    </label>
+                <!-- </div>
+                <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="rrr" type="radio"  />
+                        <span>resumes</span>
+                    </label>
+                <!-- </div>
+                <div class="col s1 " style="width:110px"> -->
+                    <label>
+                        <input class="with-gap" name="group1" value="bbb" type="radio"  />
+                        <span>services</span>
+                    </label>
+                <!-- </div>                     -->
+                <!-- </div> -->
+            </div>
+
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+    
+        </form>
+        
+        {% block content %}
+        
+        {% endblock content%}
+        
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
